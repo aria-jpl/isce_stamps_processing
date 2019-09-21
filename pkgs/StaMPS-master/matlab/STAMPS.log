@@ -1,0 +1,64 @@
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT max_topo_err = 20
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT quick_est_gamma_flag = y
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT select_reest_gamma_flag = y
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT filter_grid_size = 50
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT filter_weighting = P-square
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT gamma_change_convergence = 0.005
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT gamma_max_iterations = 3
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT slc_osf = 1
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT clap_win = 32
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT clap_low_pass_wavelength = 800
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT clap_alpha = 1
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT clap_beta = 0.3
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT select_method = DENSITY
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT density_rand = 20
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT percent_rand = 20
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT gamma_stdev_reject = 0
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT weed_time_win = 730
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT weed_max_noise = Inf
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT weed_standard_dev = 1
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT weed_zero_elevation = n
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT weed_neighbours = n
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT unwrap_method = 3D
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT unwrap_patch_phase = n
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT drop_ifg_index = []
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT unwrap_la_error_flag = y
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT unwrap_spatial_cost_func_flag = n
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT unwrap_prefilter_flag = y
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT unwrap_grid_size = 200
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT unwrap_gold_n_win = 32
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT unwrap_alpha = 8
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT unwrap_time_win = 730
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT unwrap_gold_alpha = 0.8
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT unwrap_hold_good_values = n
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT scla_drop_index = []
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT scn_wavelength = 100
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT scn_time_win = 365
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT scn_deramp_ifg = []
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT scn_kriging_flag = n
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT ref_lon = -Inf  Inf
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT ref_lat = -Inf  Inf
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT ref_centre_lonlat = 0  0
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT ref_radius = Inf
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT ref_velocity = 0
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT n_cores = 1
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT plot_dem_posting = 90
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT plot_scatterer_size = 120
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT plot_pixels_scatterer = 3
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT plot_color_scheme = inflation
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT shade_rel_angle = 90  45
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT lonlat_offset = 0  0
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT merge_resample_size = 0
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT merge_standard_dev = Inf
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT scla_method = L2
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT scla_deramp = n
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT lambda = NaN
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT heading = NaN
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT insar_processor = doris
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT subtr_tropo = n
+16-Sep-2019 20:57:13 PS_PARMS_DEFAULT tropo_method = a_l
+18-Sep-2019 15:26:48 STAMPS           ########################################
+18-Sep-2019 15:26:48 STAMPS           ####### StaMPS/MTI Version 4.0b6 #######
+18-Sep-2019 15:26:48 STAMPS           #######  Beta version, Jun 2018  #######
+18-Sep-2019 15:26:48 STAMPS           ########################################
+18-Sep-2019 15:26:48 STAMPS           Will process patch subdirectories
