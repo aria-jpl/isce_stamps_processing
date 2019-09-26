@@ -84,7 +84,7 @@ else
 endif
 
 # setting up the information
-mt_extract_info_isce
+$ISCE_STAMPS_PROCESSING/pkgs/isce2-master/contrib/timeseries/prepStackToStaMPS/bin/mt_extract_info_isce
 
 # loading the information
 set SLC_OSF=`cat slc_osfactor.1.in`

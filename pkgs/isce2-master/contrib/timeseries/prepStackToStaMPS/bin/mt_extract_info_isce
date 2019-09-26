@@ -67,7 +67,9 @@ endif
 # the path to the dem file, width, length, ul lon, ul lat, delta, format
 
 if ($dirname == "SMALL_BASELINES") then
-    matlab -nojvm -nosplash -nodisplay < $STAMPS/matlab/sb_parms_initial.m > sb_parms_initial.log
+    $ISCE_STAMPS_PROCESSING/sb_parms_initial_app_linux/sb_parms_initial > sb_parms_initial.log
+    #matlab -nojvm -nosplash -nodisplay < $STAMPS/matlab/sb_parms_initial.m > sb_parms_initial.log
 else
-    matlab -nojvm -nosplash -nodisplay < $STAMPS/matlab/ps_parms_initial.m > ps_parms_initial.log
+    $ISCE_STAMPS_PROCESSING/ps_parms_initial_app_linux/ps_parms_initial > ps_parms_initial.log
+    #matlab -nojvm -nosplash -nodisplay < $STAMPS/matlab/ps_parms_initial.m > ps_parms_initial.log
 endif
