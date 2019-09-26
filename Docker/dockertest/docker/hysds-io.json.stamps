@@ -1,0 +1,86 @@
+{
+  "label": "ISCE STAMPS PS Processing",
+  "submission_type": "individual",
+  "params": [
+    {
+      "name": "slc_stack_master",
+      "from": "submitter",
+      "type": "text",
+      "default": "yyyymmdd",
+      "optional": false,
+      "placeholder": "yyyymmdd"
+    },
+    {
+      "name": "range_looks",
+      "from": "submitter",
+      "type": "num",
+      "default": "40",
+      "optional": false,
+      "placeholder": "Default is 40"
+    },
+    {
+      "name": "azimuth_looks",
+      "from": "submitter",
+      "type": "number",
+      "default": "10",
+      "optional": false,
+      "placeholder": "Default is 10"
+    },
+    {
+      "name": "aspect_ratio",
+      "from": "submitter",
+      "type": "number",
+      "default": "4",
+      "optional": false,
+      "placeholder": "Default is 4"
+    },
+    {
+      "name": "lambda",
+      "from": "submitter",
+      "type": "number",
+      "default": "0.056",
+      "optional": false,
+      "placeholder": "Default is 0.056"
+    },
+        {
+      "name": "amplitude_dispersion",
+      "from": "submitter",
+      "type": "number",
+      "default": "0.4",
+      "optional": false,
+      "placeholder": "Default is 0.4"
+    },
+    {
+      "name": "number_patches_range",
+      "from": "submitter",
+      "type": "num",
+      "default": "1",
+      "optional": false,
+      "placeholder": "Default is 1"
+    },
+    {
+      "name": "number_patches_azimuth",
+      "from": "submitter",
+      "type": "number",
+      "default": "1",
+      "optional": false,
+      "placeholder": "Default is 1"
+    },
+    {
+      "name": "overlapping_pixels_range",
+      "from": "submitter",
+      "type": "number",
+      "default": "50",
+      "optional": false,
+      "placeholder": "Default is 50"
+    },
+    {
+      "name": "overlapping_pixels_azimuth",
+      "from": "submitter",
+      "type": "number",
+      "default": "200",
+      "optional": false,
+      "placeholder": "Default is 200"
+    }
+  ]
+}
