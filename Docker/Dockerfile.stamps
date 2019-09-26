@@ -1,5 +1,5 @@
 FROM hysds/pge-base
-MAINTAINER Alexander Torres "alexander.p.torres@jpl.nasa.gov"
+MAINTAINER Alexander P Torres "alexander.p.torres@jpl.nasa.gov"
 
 ARG id
 ARG gid
