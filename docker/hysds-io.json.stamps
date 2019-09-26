@@ -13,7 +13,7 @@
     {
       "name": "range_looks",
       "from": "submitter",
-      "type": "num",
+      "type": "number",
       "default": "40",
       "optional": false,
       "placeholder": "Default is 40"
@@ -53,7 +53,7 @@
     {
       "name": "number_patches_range",
       "from": "submitter",
-      "type": "num",
+      "type": "number",
       "default": "1",
       "optional": false,
       "placeholder": "Default is 1"
@@ -81,6 +81,11 @@
       "default": "200",
       "optional": false,
       "placeholder": "Default is 200"
+    },
+    {
+      "name":"localize_products",
+      "from":"dataset_jpath:",
+      "type":"text"
     }
   ]
 }
