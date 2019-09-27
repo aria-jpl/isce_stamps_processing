@@ -1,11 +1,7 @@
 {
-  "command": "/home/ops/verdi/ops/hello_world/hello_world",
-  "recommended-queues": [ "factotum-job_worker-small" ],
+  "command": "./home/ops/isce_stamps_processing/isce_stamps_processing.sh",
+  "recommended-queues": [ "factotum-job_worker-large" ],
   "params": [
-    {
-      "name": "slc_stack_master",
-      "destination": "context"
-    },
     {
       "name": "range_looks",
       "destination": "context"
