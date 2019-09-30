@@ -1,4 +1,4 @@
-FROM hysds/pge-base
+FROM hysds/pge-base:python2
 MAINTAINER Alexander P Torres "alexander.p.torres@jpl.nasa.gov"
 
 ARG id
