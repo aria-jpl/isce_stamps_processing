@@ -65,10 +65,10 @@
       "default": "200",
       "placeholder": "Default is 200"
     },
-    {
-      "name":"localize_products",
-      "from":"dataset_jpath:",
-      "type":"text"
+    { 
+      "name": "localize_url",
+      "from": "dataset_jpath:_source",
+      "lambda": "lambda ds: filter(lambda x: x.startswith('s3://'), ds['urls'])[0]"
     }
   ]
 }
