@@ -38,9 +38,9 @@
       "name": "overlapping_pixels_azimuth",
       "destination": "context"
     },
-    {
-      "name":"localize_products",
-      "destination":"localize"
+    { 
+      "name": "localize_url",
+      "destination": "localize"
     } 
   ]
 }
