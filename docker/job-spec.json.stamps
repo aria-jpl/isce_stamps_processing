@@ -2,6 +2,8 @@
   "command": "./home/ops/isce_stamps_processing/isce_stamps_processing.sh",
   "recommended-queues": [ "factotum-job_worker-large" ],
   "disk_usage":"100GB",
+  "soft_time_limit": 86400,
+  "time_limit": 86460,
   "params": [
     {
       "name": "range_looks",
