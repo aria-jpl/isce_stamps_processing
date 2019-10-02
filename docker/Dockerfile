@@ -1,4 +1,4 @@
-FROM hysds/pge-base:python2
+FROM hysds/pge-base:latest
 MAINTAINER Alexander P Torres "alexander.p.torres@jpl.nasa.gov"
 
 ARG id
@@ -19,7 +19,7 @@ RUN sudo yum update -y \
  && cd tmp \
  && wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh \
  && bash ~/miniconda.sh -b -p $HOME/miniconda \
- #&& sudo chown -R ops /opt/conda \
+ && sudo chown -R ops /opt/conda \
  && eval "$(/home/ops/miniconda/bin/conda shell.bash hook)" \
  && conda install -y -c conda-forge isce2 \
  && conda install -y -c anaconda mesa-libgl-cos6-x86_64 \
