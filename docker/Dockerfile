@@ -4,6 +4,9 @@ MAINTAINER Alexander P Torres "alexander.p.torres@jpl.nasa.gov"
 ARG id
 ARG gid
 
+# copy isce_stamps_processing code
+COPY . /home/ops/isce_stamps_processing
+
 # Setup MATLAB Runtime, isce_stamps_processing github repo, and Miniconda 3
 RUN sudo yum update -y \
  && sudo yum install wget unzip libXext libXt-devel libXmu tcsh -y \
