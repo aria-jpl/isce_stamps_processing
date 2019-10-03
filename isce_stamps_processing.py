@@ -11,6 +11,9 @@ import json
 import logging
 from datetime import datetime
 
+# get work directory
+cwd = os.getcwd()
+
 # logging setup
 log_format = "[%(asctime)s: %(levelname)s/%(funcName)s] %(message)s"
 logging.basicConfig(format=log_format, level=logging.INFO)
