@@ -6,6 +6,7 @@ ARG gid
 
 # copy isce_stamps_processing code
 COPY . /home/ops/isce_stamps_processing
+ENV ISCE_STAMPS_PROCESSING=/home/ops/isce_stamps_processing
 
 # Setup MATLAB Runtime, isce_stamps_processing github repo, and Miniconda 3
 RUN sudo yum update -y \
@@ -25,12 +26,12 @@ RUN sudo yum update -y \
  && sudo chown -R ops /opt/conda \
  && eval "$(/home/ops/miniconda/bin/conda shell.bash hook)" \
  && conda install -y -c conda-forge isce2 \
- && conda install -y -c anaconda mesa-libgl-cos6-x86_64  
+ && conda install -y -c anaconda mesa-libgl-cos6-x86_64 \
+ && chmod +x $ISCE_STAMPS_PROCESSING/isce_stamps_processing.sh
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/MATLAB/MATLAB_Runtime/v96/runtime/glnxa64:/usr/local/MATLAB/MATLAB_Runtime/v96/bin/glnxa64:/usr/local/MATLAB/MATLAB_Runtime/v96/sys/os/glnxa64:/usr/local/MATLAB/MATLAB_Runtime/v96/extern/bin/glnxa64
 ENV XAPPLRESDIR=/usr/local/MATLAB/MATLAB_Runtime/v901/X11/app-defaults
 ENV MCR_CACHE_VERBOSE=true
 ENV MCR_CACHE_ROOT=/tmp
-#ENV ISCE_STAMPS_PROCESSING=/home/ops/isce_stamps_processing
 
 # Set entrypoint
 USER ops
