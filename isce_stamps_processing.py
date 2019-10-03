@@ -36,13 +36,18 @@ source_data = "slc_stack"
 slc_suffix = ".full"
 geom_suffix = ".full"
 
+# get SLC stack directory
+for (root, dirs, filenames) in os.walk(cwd):
+    break
+merged_full_path = os.path.join(root, dirs[0], "merged")
+
 # dynmaic input
-if os.path.exists("merged") is True:
+if os.path.exists(merged_full_path) is True:
     # get absolute path for SLC, geom_master, and baselines directory
-    slc_stack_path = os.path.abspath("merged/SLC")
-    slc_stack_geom_path = os.path.abspath("merged/geom_master")
-    slc_stack_baseline_path = os.path.abspath("merged/baselines")
-    maskfile = os.path.abspath("merged/geom_master/shadowMask.rdr.full")
+    slc_stack_path = os.path.join(merged_full_path,"SLC")
+    slc_stack_geom_path = os.path.join(merged_full_path,"geom_master")
+    slc_stack_baseline_path = os.path.join(merged_full_path,"baselines")
+    maskfile = os.path.join(merged_full_path,"geom_master/shadowMask.rdr.full")
     # get slc stack master date
     slc_dates = os.listdir(slc_stack_path)
     slc_dates.sort(key=lambda date: datetime.strptime(date,'%Y%m%d'))
