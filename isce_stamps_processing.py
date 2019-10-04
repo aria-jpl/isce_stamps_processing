@@ -24,7 +24,7 @@ ctx_file = "_context.json"
 if os.path.exists(ctx_file):
     with open(ctx_file) as f:
         ctx = json.load(f)
-logging.info("ctx: {}".format(json.dumps(ctx, indent=2)))
+#logging.info("ctx: {}".format(json.dumps(ctx, indent=2)))
 
 
 #################################################
@@ -38,8 +38,12 @@ geom_suffix = ".full"
 
 # get SLC stack directory
 for (root, dirs, filenames) in os.walk(cwd):
-    break
+    print("cwd: {}".format(cwd))
+    print("dirs {}".format(dirs))
+    if (dirs[0].find("coregistered_slcs") == 0):
+        break
 merged_full_path = os.path.join(root, dirs[0], "merged")
+print("merged_full_path: {}".format(merged_full_path))
 
 # dynmaic input
 if os.path.exists(merged_full_path) is True:
@@ -59,9 +63,9 @@ else:
 range_looks = ctx.get("range_looks")
 azimuth_looks = ctx.get("azimuth_looks")
 aspect_ratio = ctx.get("aspect_ratio")
-wavelength= ctx.get("wavelength")
+wavelength = ctx.get("lambda")
 
-# Create "input_file"
+# create "input_file"
 with open("input_file", "w+") as input_file:
     input_file.write("source_data {}\n".format(source_data))
     input_file.write("slc_stack_path {}\n".format(slc_stack_path))
@@ -81,42 +85,22 @@ with open("input_file", "w+") as input_file:
 # Run make_single_master_stack_isce, mt_prep_isce, and stamps
 #################################################
 # get parameters for mt_prep_isce
-amplitude_dispersion=ctx.get("amplitude_dispersion")
-number_patches_range=ctx.get("number_patches_range")
-number_patches_azimuth=ctx.get("number_patches_azimuth")
-overlapping_pixels_range=ctx.get("overlapping_pixels_range")
-overlapping_pixels_azimuth = ctx.get("overlapping_pixels_azimuth")
+amplitude_dispersion=str(ctx.get("amplitude_dispersion"))
+number_patches_range=str(int(ctx.get("number_patches_range")))
+number_patches_azimuth=str(int(ctx.get("number_patches_azimuth")))
+overlapping_pixels_range=str(int(ctx.get("overlapping_pixels_range")))
+overlapping_pixels_azimuth=str(int(ctx.get("overlapping_pixels_azimuth")))
 insar_dir = "INSAR_{}".format(slc_stack_master)
 
-make_master_stack = subprocess.Popen(["make_single_master_stack_isce"],
-                                     stdout=subprocess.PIPE,
-                                     stderr=subprocess.PIPE)
+# run make_single_master_stack_isce
+subprocess.call(["make_single_master_stack_isce"])
 
-cd_insar_dir = subprocess.Popen(["cd", insar_dir],
-                      stdin=make_master_stack.stdout,
-                      stdout=subprocess.PIPE,
-                      stderr=subprocess.PIPE)
+# change to INSAR directory
+os.chdir(insar_dir)
 
-mt_prep_isce = subprocess.Popen(["mt_prep_isce",
-                                 amplitude_dispersion,
-                                 number_patches_range,
-                                 number_patches_azimuth,
-                                 overlapping_pixels_range,
-                                 overlapping_pixels_azimuth],
-                                stdin=cd_insar_dir.stdout,
-                                stdout=subprocess.PIPE,
-                                stderr=subprocess.PIPE)
+# run mt_prep_isce
+subprocess.call(["mt_prep_isce", amplitude_dispersion, number_patches_range, number_patches_azimuth, overlapping_pixels_range, overlapping_pixels_azimuth])
 
-stamps = subprocess.Popen(["stamps"],
-                      stdin=mt_prep_isce.stdout,
-                      stdout=subprocess.PIPE,
-                      stderr=subprocess.PIPE)
-
-output, error = stamps.communicate()
-
-# Print output and error to log
-logging.info(output)
-logging.info(error)
-
-
+# run stamps MATLAB standalone application
+subprocess.call(["/home/ops/isce_stamps_processing/stamps_app_linux/stamps"])
 
