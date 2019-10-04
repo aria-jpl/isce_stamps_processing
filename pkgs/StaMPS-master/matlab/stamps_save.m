@@ -42,7 +42,7 @@ function [] = stamps_save(save_name,varargin)
 %                   searched. Add '.mat' if not specified.
 %
 % maximum number of bytes before using the -v3.7 option to save
-n_bytes_max = 2^31;       % is about 2 GB
+n_bytes_max = int64(2^63 - 1);       % is about 2 GB
 
 % getting the number of bytes of the variables we are saving and update the
 % switch_option if needed.
