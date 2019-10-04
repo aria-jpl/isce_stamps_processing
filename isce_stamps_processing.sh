@@ -43,4 +43,4 @@ else
 fi
 
 # run StaMPS processing
-python $HOME/isce_stamps_processing_dev/isce_stamps_processing.py
+python $HOME/isce_stamps_processing/isce_stamps_processing.py

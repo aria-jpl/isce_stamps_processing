@@ -9,6 +9,7 @@ import os
 import subprocess
 import json
 import logging
+from  multiprocessing import cpu_count
 from datetime import datetime
 
 # get work directory
@@ -100,6 +101,10 @@ os.chdir(insar_dir)
 
 # run mt_prep_isce
 subprocess.call(["mt_prep_isce", amplitude_dispersion, number_patches_range, number_patches_azimuth, overlapping_pixels_range, overlapping_pixels_azimuth])
+
+# set number of cores of machine
+cores = str(cpu_count())
+subprocess.call(["/home/ops/isce_stamps_processing/setparm_app_linux/setparm", 'n_cores', cores])
 
 # run stamps MATLAB standalone application
 subprocess.call(["/home/ops/isce_stamps_processing/stamps_app_linux/stamps"])
