@@ -26,8 +26,7 @@ RUN sudo yum update -y \
  && sudo chown -R ops /opt/conda \
  && eval "$(/home/ops/miniconda/bin/conda shell.bash hook)" \
  && conda install -y -c conda-forge isce2 \
- && conda install -y -c anaconda mesa-libgl-cos6-x86_64 \
- && chmod +x $ISCE_STAMPS_PROCESSING/isce_stamps_processing.sh
+ && conda install -y -c anaconda mesa-libgl-cos6-x86_64
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/MATLAB/MATLAB_Runtime/v96/runtime/glnxa64:/usr/local/MATLAB/MATLAB_Runtime/v96/bin/glnxa64:/usr/local/MATLAB/MATLAB_Runtime/v96/sys/os/glnxa64:/usr/local/MATLAB/MATLAB_Runtime/v96/extern/bin/glnxa64
 ENV XAPPLRESDIR=/usr/local/MATLAB/MATLAB_Runtime/v901/X11/app-defaults
 ENV MCR_CACHE_VERBOSE=true
