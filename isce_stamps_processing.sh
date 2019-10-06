@@ -1,13 +1,15 @@
 #!/bin/bash
-
+#################################################
+# Purpose: Run StaMPS processing PGE
+# Author: Alexander Torres
+# Updated: October 6, 2019
+#################################################
 
 # start anaconda
 eval "$(/home/ops/miniconda/bin/conda shell.bash hook)"
 
-
 # save work directory
 WORK_DIR=$(pwd)
-
 
 # copy packages from isce_stamps_processing repo 
 if [[ -e $HOME/verdi/pkgs ]]
@@ -18,10 +20,10 @@ else
     cp -rf $HOME/isce_stamps_processing/pkgs/* $HOME/verdi/pkgs/
 fi
 
-
 # source paths for StaMPS processing
 . $HOME/isce_stamps_processing/pkgs/StaMPS-master/StaMPS_CONFIG.bash
 
+# check for Triangle executable
 if [[ -e $TRIANGLE_BIN/triangle ]]
 then
     echo Triangle Bin Exists!
@@ -33,6 +35,7 @@ else
     cd $WORK_DIR
 fi
 
+# check for SNAPHU executable 
 if [[ -e $SNAPHU_BIN/snaphu ]]
 then
     echo Snaphu Bin Exists!

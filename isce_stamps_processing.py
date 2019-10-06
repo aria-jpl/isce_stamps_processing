@@ -2,7 +2,7 @@
 #################################################
 # Purpose: Run ISCE2StaMPS and StaMPS processing
 # Author: Alexander Torres
-# Updated: September 19, 2019
+# Updated: October 6, 2019
 #################################################
 
 import os
@@ -82,9 +82,9 @@ with open("input_file", "w+") as input_file:
     input_file.write("maskfile {}".format(maskfile))
 
 
-#################################################
+##############################################################
 # Run make_single_master_stack_isce, mt_prep_isce, and stamps
-#################################################
+##############################################################
 # get parameters for mt_prep_isce
 amplitude_dispersion=str(ctx.get("amplitude_dispersion"))
 number_patches_range=str(int(ctx.get("number_patches_range")))
