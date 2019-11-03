@@ -2,8 +2,8 @@
   "command": "/home/ops/isce_stamps_processing/isce_stamps_processing.sh",
   "recommended-queues": [ "standard_product-ps-timeseries" ],
   "disk_usage":"1000GB",
-  "soft_time_limit": 259200,
-  "time_limit": 259260,
+  "soft_time_limit": 864000,
+  "time_limit": 864060,
   "params": [
     {
       "name": "range_looks",
