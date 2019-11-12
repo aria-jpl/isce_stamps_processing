@@ -1,0 +1,22 @@
+{
+  "ipath": "ariamh::data/PS-TIME-SERIES",
+  "match_pattern": "/(?P<id>standard_product-ps-time-series-(?P<year>\\d{4})(?P<month>\\d{2})(?P<day>\\d{2})(?P<time>\\d{6}).+)$",
+  "alt_match_pattern": null,
+  "extractor": null,
+  "level": "NA",
+  "type": "ps-time-series",
+  "publish": {
+    "s3-profile-name": "default",
+    "location": "s3://s3-us-west-2.amazonaws.com:80/##BUCKET##/datasets/{type}/{version}/{year}/{month}/{day}/{id}",
+    "urls": [
+      "http://##WEBDAV_URL##/datasets/{type}/{version}/{year}/{month}/{day}/{id}",
+      "s3://##S3_URL##:80/##BUCKET##/datasets/{type}/{version}/{year}/{month}/{day}/{id}"
+    ]
+  },
+  "browse": {
+    "location": "davs://##WEBDAV_USER##@##WEBDAV USER##/browse/{type}/{version}/{year}/{month}/{day}/{id}",
+    "urls": [
+      "https://##WEBDAV##/browse/{type}/{version}/{year}/{month}/{day}/{id}"
+    ]
+  }
+}

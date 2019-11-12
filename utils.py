@@ -144,6 +144,6 @@ def generate_met_json_data(cxt, met_json_file, dataset_json_file, version):
 
     # additional information
     met_json_data['version'] = version
-    met_json_data['dataset_type'] = 'ps-timeseries'
+    met_json_data['dataset_type'] = 'ps-time-series'
 
     return met_json_data
