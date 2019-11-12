@@ -47,3 +47,6 @@ fi
 
 # run StaMPS processing
 python $HOME/isce_stamps_processing/isce_stamps_processing.py
+
+# run create_dataset.py
+python $HOME/isce_stamps_processing/create_dataset.py
