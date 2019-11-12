@@ -33,7 +33,7 @@ def get_dataset_met_json_files(cxt, pwd):
     :return: str, str
     """
     if cxt['localize_urls'] != []:
-        localize_url = cxt['localize_urls']
+        localize_url = cxt['localize_urls'][0]
         local_path = localize_url['url']
         coreg_slc_id = local_path.split('/')[-1]
         slc_path = os.path.join(pwd, coreg_slc_id, coreg_slc_id)
@@ -71,7 +71,7 @@ def get_min_max_timestamps(cxt, pwd):
     :param pwd: path of work directory
     :return: (str, str) 2 timestamp strings, ex. 20190518T161611
     """
-    localize_urls = cxt['localize_urls']
+    localize_urls = cxt['localize_urls'][0]
     local_path = localize_urls['url']
     coreg_slc_id = local_path.split('/')[-1]
     parsed = coreg_slc_id.split('-')
@@ -131,8 +131,8 @@ def generate_met_json_data(cxt, met_json_file, dataset_json_file, version):
     #load stack met.json to ps-timeseries met.json
     stack_met_json = read_json_file(met_json_file)
     met_json_data['direction'] = stack_met_json['direction']
-    met_json_data['orbitNumber'] = stack_met_json['orbitNumber']
-    met_json_data['trackNumber'] = stack_met_json['trackNumber']
+    met_json_data['orbit_number'] = stack_met_json['orbit_number']
+    met_json_data['track_number'] = stack_met_json['track_number']
     met_json_data['sensor'] = stack_met_json['sensor']
     met_json_data['platform'] = stack_met_json['platform']
     met_json_data['scene_count'] = stack_met_json['scene_count']
