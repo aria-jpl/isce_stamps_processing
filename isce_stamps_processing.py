@@ -43,6 +43,7 @@ for (root, dirs, filenames) in os.walk(cwd):
     print("dirs {}".format(dirs))
     if (dirs[0].find("coregistered_slcs") == 0):
         break
+coreg_full_path = os.path.join(root, dirs[0])
 merged_full_path = os.path.join(root, dirs[0], "merged")
 print("merged_full_path: {}".format(merged_full_path))
 
@@ -109,3 +110,7 @@ subprocess.call(["/home/ops/isce_stamps_processing/setparm_app_linux/setparm", '
 # run stamps MATLAB standalone application
 subprocess.call(["/home/ops/isce_stamps_processing/stamps_app_linux/stamps"])
 
+# rm coregistered slc context.json, dataset.json, and met.json 
+os.remove(os.path.join(coreg_full_path, "*context.json"))
+os.remove(os.path.join(coreg_full_path, "*dataset.json"))
+os.remove(os.path.join(coreg_full_path, "*met.json"))
