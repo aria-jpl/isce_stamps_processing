@@ -2,7 +2,7 @@
 #################################################
 # Purpose: Run ISCE2StaMPS and StaMPS processing
 # Author: Alexander Torres
-# Updated: October 6, 2019
+# Updated: December 11, 2019
 #################################################
 
 import os
