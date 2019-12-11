@@ -26,7 +26,7 @@ fi
 # check for Triangle executable
 if [[ -e $TRIANGLE_BIN/triangle ]]
 then
-    echo Triangle Bin Exists!
+    echo "Triangle Bin Exists!"
 else
     cd $HOME/verdi/pkgs/triangle
     make
@@ -38,7 +38,7 @@ fi
 # check for SNAPHU executable 
 if [[ -e $SNAPHU_BIN/snaphu ]]
 then
-    echo Snaphu Bin Exists!
+    echo "Snaphu Bin Exists!"
 else
     cd $HOME/verdi/pkgs/snaphu-v2.0.0/src
     make
@@ -48,5 +48,11 @@ fi
 # run StaMPS processing
 python $HOME/isce_stamps_processing/isce_stamps_processing.py
 
-# run create_dataset.py
-python $HOME/isce_stamps_processing/create_dataset.py
+# check if StaMPS ran successfully
+if [ $? -eq 0 ]; then
+    echo "StaMPS SUCCESSFUL!"
+    # run create_dataset.py
+    python $HOME/isce_stamps_processing/create_dataset.py
+else
+    echo "StaMPS FAILED"
+fi
