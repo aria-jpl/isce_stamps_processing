@@ -9,6 +9,7 @@ import os
 import subprocess
 import json
 import logging
+import stat
 from  multiprocessing import cpu_count
 from datetime import datetime
 
@@ -81,6 +82,7 @@ with open("input_file", "w+") as input_file:
     input_file.write("slc_suffix {}\n".format(slc_suffix))
     input_file.write("geom_suffix {}\n".format(geom_suffix))
     input_file.write("maskfile {}".format(maskfile))
+input_file.close()
 
 
 ##############################################################
@@ -93,24 +95,30 @@ number_patches_azimuth=str(int(ctx.get("number_patches_azimuth")))
 overlapping_pixels_range=str(int(ctx.get("overlapping_pixels_range")))
 overlapping_pixels_azimuth=str(int(ctx.get("overlapping_pixels_azimuth")))
 insar_dir = "INSAR_{}".format(slc_stack_master)
+insar_full_path = os.path.join(root, insar_dir)
+
 
 # run make_single_master_stack_isce
-subprocess.call(["make_single_master_stack_isce"])
+cp = subprocess.run(["make_single_master_stack_isce"], check=True)
 
 # change to INSAR directory
-os.chdir(insar_dir)
+try:
+    os.chdir(insar_dir)
+except FileNotFoundError as e:
+    print(e)
 
 # run mt_prep_isce
-subprocess.call(["mt_prep_isce", amplitude_dispersion, number_patches_range, number_patches_azimuth, overlapping_pixels_range, overlapping_pixels_azimuth])
+cp = subprocess.run(["mt_prep_isce", amplitude_dispersion, number_patches_range, number_patches_azimuth, overlapping_pixels_range, overlapping_pixels_azimuth], check=True)
 
 # set number of cores of machine
 cores = str(cpu_count())
-subprocess.call(["/home/ops/isce_stamps_processing/setparm_app_linux/setparm", 'n_cores', cores])
+cp = subprocess.run(["/home/ops/isce_stamps_processing/setparm_app_linux/setparm", 'n_cores', cores], check=True)
 
 # run stamps MATLAB standalone application
-subprocess.call(["/home/ops/isce_stamps_processing/stamps_app_linux/stamps"])
+cp = subprocess.run(["/home/ops/isce_stamps_processing/stamps_app_linux/stamps"], check=True)
 
-# rm coregistered slc context.json, dataset.json, and met.json 
-os.remove(os.path.join(coreg_full_path, "*context.json"))
-os.remove(os.path.join(coreg_full_path, "*dataset.json"))
-os.remove(os.path.join(coreg_full_path, "*met.json"))
+if cp.returncode == 0:
+    # rm coregistered slc context.json, dataset.json, and met.json 
+    os.remove(os.chmod(os.path.join(coreg_full_path, "*context.json"), stat.S_IWRITE))
+    os.remove(os.chmod(os.path.join(coreg_full_path, "*dataset.json"), stat.S_IWRITE))
+    os.remove(os.chmod(os.path.join(coreg_full_path, "*met.json"), stat.S_IWRITE))
