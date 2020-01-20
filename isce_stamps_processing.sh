@@ -55,4 +55,5 @@ if [ $? -eq 0 ]; then
     python $HOME/isce_stamps_processing/create_dataset.py
 else
     echo "StaMPS FAILED"
+    exit 1
 fi
