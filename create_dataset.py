@@ -2,7 +2,7 @@ from utils import *
 
 if __name__ == '__main__':
     VERSION = 'v1.0'
-    DATASET_NAMING_TEMPLATE = 'standard_product-ps-time-series-{min_timestamp}-{max_timestamp}'
+    DATASET_NAMING_TEMPLATE = 's1-timeseries-ps-stamps-{min_timestamp}-{max_timestamp}'
     PWD = os.getcwd()
 
     # creating list of all SLC stack .dataset.json and .met.json files
