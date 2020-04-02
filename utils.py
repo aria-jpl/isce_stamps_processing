@@ -123,7 +123,7 @@ def generate_met_json_data(cxt, met_json_file, dataset_json_file, version):
     # load _job.json data to met.json
     job_json = read_json_file('_job.json')
     met_json_data = dict()
-    met_json_data['job_params'] = job_json['params']['job_specification']['params']
+    # met_json_data['job_params'] = job_json['params']['job_specification']['params']
     met_json_data['processing_start'] = job_json['job_info']['cmd_start']
     met_json_data['processing_end'] = job_json['job_info']['cmd_end']
     met_json_data['processing_duration'] = job_json['job_info']['cmd_duration']
@@ -144,6 +144,6 @@ def generate_met_json_data(cxt, met_json_file, dataset_json_file, version):
 
     # additional information
     met_json_data['version'] = version
-    met_json_data['dataset_type'] = 'ps-time-series'
+    met_json_data['dataset_type'] = 's1-timeseries-ps-stamps'
 
     return met_json_data
