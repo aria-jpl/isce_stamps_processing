@@ -1,11 +1,11 @@
 {
-  "ipath": "ariamh::data/PS-TIME-SERIES",
-  "match_pattern": "/(?P<id>standard_product-ps-time-series-(?P<year>\\d{4})(?P<month>\\d{2})(?P<day>\\d{2})(?P<time>\\d{6}).+)$",
-  "alt_match_pattern": null,
-  "extractor": null,
-  "level": "NA",
-  "type": "ps-time-series",
-  "publish": {
+    "ipath": "ariamh::data/s1-timeseries-ps-stamps",
+    "match_pattern": "/(?P<id>s1-timeseries-ps-stamps-(?P<year>\\d{4})(?P<month>\\d{2})(?P<day>\\d{2})(?P<time>\\d{6}).+)$",
+    "alt_match_pattern": null,
+    "extractor": null,
+    "level": "NA",
+    "type": "time_series",
+    "publish": {
     "s3-profile-name": "default",
     "location": "s3://s3-us-west-2.amazonaws.com:80/##BUCKET##/datasets/{type}/{version}/{year}/{month}/{day}/{id}",
     "urls": [
